@@ -3,7 +3,7 @@ import numpy as np
 import cvxpy as cp
 import streamlit as st
 
-st.title("サイゼリヤPFC最適化アプリ")
+st.header("サイゼリヤメニューのPFC組み合わせ最適化アプリ")
 
 menu = pd.read_excel("saizeriya.xlsx")
 menu = menu.dropna()
