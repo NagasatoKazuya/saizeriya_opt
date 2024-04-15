@@ -17,7 +17,7 @@ fat = np.array(menu["F"])
 carbo = np.array(menu["C"])
 
 condition_dict = {
-    "合計金額": price,
+    "金額": price,
     "カロリー": kcal,
     "タンパク質": protein,
     "脂質": fat,
@@ -28,7 +28,7 @@ condition_dict = {
 x = cp.Variable(len(menu), boolean=True)
 
 opt_list = st.radio(
-    "どれを最適化する？", ["合計金額", "カロリー", "タンパク質", "脂質", "炭水化物"]
+    "どれを最適化する？", ["金額", "カロリー", "タンパク質", "脂質", "炭水化物"]
 )
 opt_condition = st.radio("上記項目をどうする？", ["最大化", "最小化"])
 if opt_condition == "最大化":
@@ -40,7 +40,7 @@ constraints = []
 
 
 st.write("条件を指定する項目は？")
-if st.checkbox("合計金額"):
+if st.checkbox("金額"):
     min_price, max_price = st.slider(
         label="合計金額(円)の範囲は？",
         min_value=0,
